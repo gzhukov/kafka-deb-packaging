@@ -21,6 +21,8 @@ case "$1" in
         fi
 
         # chown kafka directories
+        mkdir -p /var/log/kafka
+        mkdir -p /var/spool/kafka
         chown kafka:kafka /var/log/kafka
         chown kafka:kafka /var/spool/kafka
     ;;
