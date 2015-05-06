@@ -55,12 +55,18 @@ socket.request.max.bytes=104857600
 ############################# Log Basics #############################
 
 # A comma seperated list of directories under which to store log files
-log.dirs=/var/spool/kafka
+log.dirs=/mnt/kafka/kafka-data
 
 # The default number of log partitions per topic. More partitions allow greater
 # parallelism for consumption, but this will also result in more files across
 # the brokers.
-num.partitions=2
+
+############################ Other system parameters ########################
+num.partitions=1
+default.replication.factor=2
+message.max.bytes=10000000
+replica.fetch.max.bytes=10000000
+auto.topic.enable.create=False
 
 ############################# Log Flush Policy #############################
 
@@ -103,6 +109,9 @@ log.retention.check.interval.ms=60000
 # By default the log cleaner is disabled and the log retention policy will default to just delete segments after their retention expires.
 # If log.cleaner.enable=true is set the cleaner will be enabled and individual logs can then be marked for log compaction.
 log.cleaner.enable=false
+
+############################# Topics #############################
+delete.topic.enable=true
 
 ############################# Zookeeper #############################
 
