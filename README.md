@@ -12,7 +12,7 @@ apt-get install ruby-dev gcc make
 gem install fpm
 
 3) Run script
-bash build_kafka.sh
+bash build_kafka.sh <build-version>
 
 
 ## Changelog
