@@ -23,5 +23,6 @@ KAFKA_LOG4J_OPTS="-Dlog4j.configuration=file:$KAFKA_CONFIG/log4j.properties"
 KAFKA_JVM_PERFORMANCE_OPTS="-server -XX:+UseG1GC -XX:MaxGCPauseMillis=20 -XX:InitiatingHeapOccupancyPercent=35"
 
 KAFKA_HEAP_OPTS="-Xmx4G" # -Xms1G"
+KAFKA_JMX_OPTS="-Dcom.sun.management.jmxremote -Dcom.sun.management.jmxremote.authenticate=false  -Dcom.sun.management.jmxremote.ssl=false -Dcom.sun.management.jmxremote.local.only=false"
 JMX_PORT=7199
 #KAFKA_OPTS="-Dname=kafka"
