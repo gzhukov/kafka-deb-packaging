@@ -13,14 +13,12 @@ license="Apache Software License 2.0"
 package_version=$1
 bin_package="kafka_${scala_version}-${version}.tgz"
 download_url="http://apache-mirror.rbc.ru/pub/apache/kafka/${version}/${bin_package}"
-log4j_extras_url="http://central.maven.org/maven2/log4j/apache-log4j-extras/1.2.17/apache-log4j-extras-1.2.17.jar"
 origdir="$(pwd)"
 
 #_ MAIN _#
 rm -rf ${name}*.deb
 if [[ ! -f "${bin_package}" ]]; then
   wget ${download_url}
-  wget ${log4j_extras_url}
 fi
 mkdir -p tmp && pushd tmp
 rm -rf kafka
@@ -32,7 +30,6 @@ cp -r ${origdir}/files/deb ./deb
 
 tar zxf ${origdir}/${bin_package} && cd kafka_${scala_version}-${version}
 mv * ../build/usr/lib/kafka
-mv ${origdir}/apache-log4j-extras*.jar ../build/usr/lib/kafka/libs/
 cd ../build
 
 fpm -t deb \
