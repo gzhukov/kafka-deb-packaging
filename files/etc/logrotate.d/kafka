@@ -1,0 +1,20 @@
+/var/log/kafka/controller.log
+/var/log/kafka/kafka-request.log
+/var/log/kafka/kafka.log
+/var/log/kafka/kafkaServer-gc.log
+/var/log/kafka/log-cleaner.log
+/var/log/kafka/state-change.log
+{
+  daily
+  compress
+  ifempty
+  olddir /var/log/kafka/old/
+  rotate 5
+  maxage 14
+  size 100M
+  dateext
+  dateformat -%Y-%m-%d
+  missingok
+  nocreate
+  copytruncate
+}
